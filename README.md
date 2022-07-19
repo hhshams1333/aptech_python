@@ -1,5 +1,6 @@
 # aptech_python
-python project for Aptech course
+python project for Aptech course.
+
 This program takes a txt file and a css file
 then checks the paragraphs(multi lines) and if
  paragraph starts with number, it will generate
