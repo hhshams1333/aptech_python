@@ -29,24 +29,36 @@ try:
 
 
     fp = open('index.html', 'w')
-    fp.write("""<!DOCTYPE html>
-    <html lang="en">
+    fp.write("""<!Doctype html>
+    <html lang="fa">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ostad Lotfi</title>
-        <link rel="stylesheet" href="%s">
+    <title>Ostad Lotfi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="%s">
     </head>
     <body>
+     <div class="row">
     """ %(cssFilePath))
 
     for p in paragraphs:
         # print(p)
+       
+      
         if  p[:1].isdigit() : 
             fp.write('<h1>'+p[1:]+'</h1>\n')
         else:
+            fp.write('<div class="col-lg">')
             fp.write('<p>'+p+'</p>\n')
+            fp.write('</div>')
+
+    
+    fp.write(' </div>\n')
+    fp.write('<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>\n')
+    fp.write('<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>\n')
     fp.write('</body>\n')
     fp.write('</html>\n')
     fp.close()
